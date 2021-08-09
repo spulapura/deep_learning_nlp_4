@@ -26,6 +26,9 @@ def pad_sents(sents, pad_token):
     sents_padded = []
 
     ### START CODE HERE (~6 Lines)
+    max_len = max(list(map(lambda x: len(x), sents)))
+    sents_padded = [np.pad(lst, (0, max_len - len(lst)), 'constant', constant_values=("", pad_token)).tolist() for lst in sents]
+
     ### END CODE HERE
 
     return sents_padded
